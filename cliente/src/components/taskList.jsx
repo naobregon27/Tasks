@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTasks } from '../redux/actions/taskActions';
-import Task from './Task';
+import Task from './task';
 import TaskForm from './taskForm'; // Asegúrate de que la ruta sea correcta
 import Modal from './modal'; // Asegúrate de que la ruta sea correcta
 
