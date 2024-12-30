@@ -29,29 +29,32 @@ const TaskForm = ({ task, onClose }) => {
     }, [task]);
 
     return (
-        <div className="task-form p-4 border border-gray-300 rounded-md shadow-md mb-4">
+        <div className="task-form p-4 border border-gray-300 rounded-md shadow-md mb-4 border-animated bg-white bg-opacity-50">
+            <h2 className="text-2xl font-bold mb-4 text-black">
+                {task ? 'Actualizar Tarea' : 'Agregar Tarea'}
+            </h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Title</label>
+                    <label className="block text-black text-sm font-bold mb-2">Title</label>
                     <input
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded-md"
+                        className="w-full p-2 border border-gray-300 rounded-md text-black"
                         required
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                    <label className="block text-black text-sm font-bold mb-2">Description</label>
                     <textarea
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded-md"
+                        className="w-full p-2 border border-gray-300 rounded-md text-black"
                         required
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Completed</label>
+                    <label className="block text-black text-sm font-bold mb-2">Completed</label>
                     <input
                         type="checkbox"
                         checked={completed}
@@ -60,8 +63,19 @@ const TaskForm = ({ task, onClose }) => {
                     />
                 </div>
                 <div className="flex justify-end">
-                    <button type="button" onClick={onClose} className="mr-2 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">Cancel</button>
-                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Save</button>
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="mr-2 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 hover-bounce hover:shadow-lg hover:shadow-gray-500/50"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 hover-bounce hover:shadow-lg hover:shadow-blue-500/50"
+                    >
+                        Save
+                    </button>
                 </div>
             </form>
         </div>

@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteTask } from '../redux/actions/taskActions';
-import TaskForm from './taskForm';
-import Modal from './modal';
+import { deleteTask, updateTask } from '../redux/actions/taskActions';
+import TaskForm from './TaskForm';
+import Modal from './Modal';
 
 const Task = ({ task }) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -18,19 +18,39 @@ const Task = ({ task }) => {
         setIsEditing(true);
     };
 
+    const handleToggleComplete = () => {
+        dispatch(updateTask(task._id, { ...task, completed: !task.completed }));
+    };
+
     const handleCloseForm = () => {
         setIsEditing(false);
     };
 
     return (
-        <div className="task p-4 border border-gray-300 rounded-md shadow-md mb-4">
-            <h3 className="text-xl font-bold text-gray-800">{task.title}</h3>
-            <p className="text-gray-600">{task.description}</p>
-            <p className="text-gray-500">{task.completed ? 'Completada' : 'Pendiente'}</p>
-            <p className="text-gray-400">{new Date(task.createdAt).toLocaleDateString()}</p>
-            <div className="mt-4">
-                <button onClick={handleEdit} className="mr-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Edit</button>
-                <button onClick={handleDelete} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">Delete</button>
+        <div className="task p-4 border-4 border-gray-800 rounded-md shadow-lg mb-4 border-animated bg-blue-500 bg-opacity-50">
+            <h3 className="text-xl font-bold text-black">{task.title}</h3>
+            <p className="text-white">{task.description}</p>
+            <p className="text-gray-800">{task.completed ? 'Completada' : 'Pendiente'}</p>
+            <p className="text-gray-700">{new Date(task.createdAt).toLocaleDateString()}</p>
+            <div className="mt-4 flex flex-wrap justify-between gap-2">
+                <button
+                    onClick={handleEdit}
+                    className="flex-1 sm:flex-none bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 hover-bounce hover:shadow-lg hover:shadow-blue-500/50"
+                >
+                    Edit
+                </button>
+                <button
+                    onClick={handleDelete}
+                    className="flex-1 sm:flex-none bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 hover-bounce hover:shadow-lg hover:shadow-red-500/50"
+                >
+                    Delete
+                </button>
+                <button
+                    onClick={handleToggleComplete}
+                    className="flex-1 sm:flex-none bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 hover-bounce hover:shadow-lg hover:shadow-green-500/50"
+                >
+                    {task.completed ? 'Mark as Pending' : 'Mark as Completed'}
+                </button>
             </div>
 
             {/* Modal para Editar Tarea */}

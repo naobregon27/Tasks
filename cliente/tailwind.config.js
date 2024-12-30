@@ -1,11 +1,13 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: {
-    extend: {},
+export const purge = ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'];
+export const darkMode = false;
+export const theme = {
+  extend: {
+    animation: {
+      border: 'borderAnimation 4s linear infinite',
+    }
   },
-  plugins: [],
-}
+};
+export const variants = {
+  extend: {},
+};
+export const plugins = [];

@@ -92,15 +92,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f7f7f7;
+  background: linear-gradient(135deg, #000000, #2d2d2d);
 }
+
 
 .App {
   width: 100%;
   max-width: 1200px;
   margin: 20px;
   padding: 20px;
-  background-color: white;
+  background: linear-gradient(135deg, #000000, #2c2c2c);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -115,7 +116,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #ffffff80;
   box-sizing: border-box;
 }
 

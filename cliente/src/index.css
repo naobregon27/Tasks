@@ -69,3 +69,66 @@ button:focus-visible {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px #00ff00, 0 0 16px #00ff00, 0 0 24px #00ff00, 0 0 32px #00ff00, 0 0 40px #00ff00, 0 0 48px #00ff00, 0 0 56px #00ff00;
+  }
+  50% {
+    text-shadow: 0 0 16px #00ff00, 0 0 24px #00ff00, 0 0 32px #00ff00, 0 0 40px #00ff00, 0 0 48px #00ff00, 0 0 56px #00ff00, 0 0 64px #00ff00;
+  }
+}
+
+.neon-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  animation: neonPulse 1s infinite alternate;
+  
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: #ff3700e7; /* Rojo */
+    box-shadow: 0 0 5px #ff1500ee;
+  }
+  25% {
+    border-color: #00ff00; /* Verde */
+    box-shadow: 0 0 5px #00ff00;
+  }
+  50% {
+    border-color: #0000ff; /* Azul */
+    box-shadow: 0 0 5px #0000ff;
+  }
+  75% {
+    border-color: #ffff00; /* Amarillo */
+    box-shadow: 0 0 5px #ffff00;
+  }
+  100% {
+    border-color: #ff0000; /* Rojo */
+    box-shadow: 0 0 5px #ff0000;
+  }
+}
+
+.border-animated {
+  animation: borderAnimation 4s linear infinite;
+  border-width: 2px; /* Incrementar el grosor del borde */
+}
+
+
+@keyframes buttonBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+.hover-bounce:hover {
+  animation: buttonBounce 0.5s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
