@@ -5,8 +5,7 @@ export const CREATE_TASK = 'CREATE_TASK';
 export const UPDATE_TASK = 'UPDATE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 
-//const URL = 'http://localhost:3000'
-const URL = "https://tasks-jabl.onrender.com"
+
 
 export const getTasks = () => async dispatch => {
     const response = await axios.get('https://tasks-jabl.onrender.com/tasks');
