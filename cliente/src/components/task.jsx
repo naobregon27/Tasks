@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteTask, updateTask } from '../redux/actions/taskActions';
+import { deleteTask } from '../redux/actions/taskActions';
 import TaskForm from './taskForm';
 import Modal from './modal';
 
@@ -16,10 +16,6 @@ const Task = ({ task }) => {
 
     const handleEdit = () => {
         setIsEditing(true);
-    };
-
-    const handleToggleComplete = () => {
-        dispatch(updateTask(task._id, { ...task, completed: !task.completed }));
     };
 
     const handleCloseForm = () => {
@@ -44,12 +40,6 @@ const Task = ({ task }) => {
                     className="flex-1 sm:flex-none bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 hover-bounce hover:shadow-lg hover:shadow-red-500/50"
                 >
                     Delete
-                </button>
-                <button
-                    onClick={handleToggleComplete}
-                    className="flex-1 sm:flex-none bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 hover-bounce hover:shadow-lg hover:shadow-green-500/50"
-                >
-                    {task.completed ? 'Mark as Pending' : 'Mark as Completed'}
                 </button>
             </div>
 
