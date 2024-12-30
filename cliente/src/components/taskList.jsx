@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTasks, updateTask } from '../redux/actions/taskActions';
-import Task from './Task';
-import TaskForm from './TaskForm'; // Asegúrate de que la ruta sea correcta
-import Modal from './Modal';
+import Task from './task';
+import TaskForm from './taskForm'; // Asegúrate de que la ruta sea correcta
+import Modal from './modal';
 
 const TaskList = () => {
     const [isAdding, setIsAdding] = useState(false);

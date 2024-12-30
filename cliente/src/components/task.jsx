@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteTask, updateTask } from '../redux/actions/taskActions';
-import TaskForm from './TaskForm';
-import Modal from './Modal';
+import TaskForm from './taskForm';
+import Modal from './modal';
 
 const Task = ({ task }) => {
     const [isEditing, setIsEditing] = useState(false);
