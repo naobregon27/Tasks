@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTasks, updateTask } from '../redux/actions/taskActions';
 import Task from './task';
-import TaskForm from './taskForm'; // Asegúrate de que la ruta sea correcta
+import TaskForm from './taskForm';
 import Modal from './modal';
 
 const TaskList = () => {
@@ -43,32 +43,29 @@ const TaskList = () => {
                 </button>
             </div>
             <div className="flex space-x-4">
-                <div className="w-1/2 p-4 border border-gray-300 rounded-md shadow-md bg-white bg-opacity-10 text-white overflow-hidden">
+                <div className="w-full md:w-1/2 p-4 border border-gray-300 rounded-md shadow-md bg-white bg-opacity-10 text-white overflow-hidden">
                     <h2 className="text-xl font-bold mb-2 text-green-400">Pendientes</h2>
-                    <div className="grid grid-cols-2 gap-4" style={{ height: '400px', overflowY: 'scroll', scrollbarWidth: 'none' }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ height: '400px', overflowY: 'scroll', scrollbarWidth: 'none' }}>
                         {pendingTasks.map(task => (
                             <Task key={task._id} task={task} onComplete={handleCompleteTask} />
                         ))}
-                        {/* Añadir divs vacíos para mantener el tamaño */}
                         {Array(2 - (pendingTasks.length % 2)).fill('').map((_, index) => (
                             <div key={`empty-pending-${index}`} className="task invisible"></div>
                         ))}
                     </div>
                 </div>
-                <div className="w-1/2 p-4 border border-gray-300 rounded-md shadow-md bg-white bg-opacity-10 text-white overflow-hidden">
+                <div className="w-full md:w-1/2 p-4 border border-gray-300 rounded-md shadow-md bg-white bg-opacity-10 text-white overflow-hidden">
                     <h2 className="text-xl font-bold mb-2 text-green-400">Completadas</h2>
-                    <div className="grid grid-cols-2 gap-4" style={{ height: '400px', overflowY: 'scroll', scrollbarWidth: 'none' }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ height: '400px', overflowY: 'scroll', scrollbarWidth: 'none' }}>
                         {completedTasks.map(task => (
                             <Task key={task._id} task={task} />
                         ))}
-                        {/* Añadir divs vacíos para mantener el tamaño */}
                         {Array(2 - (completedTasks.length % 2)).fill('').map((_, index) => (
                             <div key={`empty-completed-${index}`} className="task invisible"></div>
                         ))}
                     </div>
                 </div>
             </div>
-            {/* Modal para Agregar Tarea */}
             <Modal isOpen={isAdding} onClose={handleCloseForm}>
                 <TaskForm onClose={handleCloseForm} />
             </Modal>
