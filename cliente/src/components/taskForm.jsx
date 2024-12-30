@@ -14,8 +14,10 @@ const TaskForm = ({ task, onClose }) => {
         e.preventDefault();
         if (task) {
             dispatch(updateTask(task._id, { title, description, completed }));
+            window.alert('Tarea modificada');
         } else {
             dispatch(createTask({ title, description, completed }));
+            window.alert('Tarea agregada');
         }
         onClose(); // Llamamos a la función de cierre después de guardar los cambios
     };

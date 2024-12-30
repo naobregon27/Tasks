@@ -12,6 +12,7 @@ const Task = ({ task }) => {
 
     const handleDelete = () => {
         dispatch(deleteTask(task._id));
+        window.alert('Tarea eliminada');
     };
 
     const handleEdit = () => {
@@ -33,13 +34,13 @@ const Task = ({ task }) => {
                     onClick={handleEdit}
                     className="flex-1 sm:flex-none bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 hover-bounce hover:shadow-lg hover:shadow-blue-500/50"
                 >
-                    Edit
+                    Editar
                 </button>
                 <button
                     onClick={handleDelete}
                     className="flex-1 sm:flex-none bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 hover-bounce hover:shadow-lg hover:shadow-red-500/50"
                 >
-                    Delete
+                    Eliminar
                 </button>
             </div>
 
